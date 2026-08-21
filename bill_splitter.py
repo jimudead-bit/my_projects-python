@@ -1,4 +1,4 @@
-from email.mime import text
+
 
 
 print("==============Welcome to BillSplitter!==============")
@@ -11,7 +11,7 @@ while True:
     if ask:
         charge_type = input("Was it a tip or service charge? (tip/service charge) ").lower().casefold().replace("_", " ").strip()
     def parse_amount(raw_value):
-        cleaned = raw_value.strip().replace("Rs.", "").replace("rs.", "").replace(",", "").replace("_", "").replace("-", "").strip()
+        cleaned = raw_value.strip().replace("Rs.", "").replace("rs.", "").replace(",", "").replace("_", "").replace("rs", "").replace("Rs", "").replace("RS", "").strip()
         is_percentage = cleaned.endswith("%")
         value = cleaned[:-1] if is_percentage else cleaned
         return int(value or 0), is_percentage
